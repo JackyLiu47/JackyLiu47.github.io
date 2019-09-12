@@ -5,10 +5,10 @@
 menu:
     home: /
     archive: /archives
-    categories: /categories
-    tags: /tags
-    about: /about
-    gallery: /gallery
+    #categories: /categories
+    #tags: /tags
+    #about: /about
+    #gallery: /gallery
 
 # favicon & logo
 # if the value of logo is false, the 'title' is optional.

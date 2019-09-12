@@ -1,7 +1,7 @@
 ---
 title: SPADEnote
 date: 2019-09-12 12:55:02
-cover: /img/GauGAN001.png
+cover: /img/cover1.png
 tags: Deep-Learning
 ---
 ## SPADE论文笔记  Notes of SPADE thesis
