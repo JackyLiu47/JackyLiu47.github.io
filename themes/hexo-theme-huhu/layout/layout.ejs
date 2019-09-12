@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% if (theme.gtm_id) { %>
+    <!-- Google Tag Manager -->
+    <script>
+      ;(function(w, d, s, l, i) {
+        w[l] = w[l] || []
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' })
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : ''
+        j.async = true
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl
+        f.parentNode.insertBefore(j, f)
+      })(window, document, 'script', 'dataLayer', '<%= theme.gtm_id %>')
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Google Adsense -->
+    <% if (theme.google_ad_client) { %>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <% } %>
+    <!-- Google Adsense -->
+
+    <!-- 百度统计 -->
+    <script>
+      var _hmt = _hmt || []
+      ;(function() {
+        var hm = document.createElement('script')
+        hm.src = 'https://hm.baidu.com/hm.js?5a0acc897fd96474a2c8f4deac84611a'
+        var s = document.getElementsByTagName('script')[0]
+        s.parentNode.insertBefore(hm, s)
+      })()
+    </script>
+    <!-- 百度统计 -->
+    <% } %>
+    <meta charset="utf-8" />
+    <meta name="baidu-site-verification" content="vvVgSQUzPU" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="keywords" content="<%= config.keywords%>" />
+    <% if (theme.google_site_verification) { %>
+    <meta name="google-site-verification" content="<%= theme.google_site_verification %>" />
+    <% } %> <% if (theme.baidu_union_verify) { %>
+    <meta name="baidu_union_verify" content="<%= theme.baidu_union_verify %>" />
+    <% } %>
+    <meta name="description" content="<%= config.description%>" />
+    <% let title = page.title; if (is_archive()) { title = __('archives') } if (is_month()) { title
+    += page.year + '/' + page.month; } else if (is_year()) { title += page.year; } else if
+    (is_category()) { title = page.category; } else if (is_tag()) { title = page.tag; } %>
+    <title>
+      <% if (title) { %><%= title %><% } else { %> <%= config.subtitle %><% }%> - <%= config.title
+      %>
+    </title>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="shortcut icon" href="<%= theme.favicon %>" type="image/x-icon" />
+    <%- css('style/style') %>
+  </head>
+  <body>
+    <div id="fixed-menu">
+      <span class="iconfont icon-arrowup"></span>
+    </div>
+    <div id="progress">
+      <div class="line"></div>
+    </div>
+    <div id="head">
+      <% for (var i in theme.menu){ %>
+      <a
+        href="<%- url_for(theme.menu[i]) %>"
+        class="<%= is_current(theme.menu[i]) ? 'current' : '' %>"
+      >
+        <%= __(i) %>
+      </a>
+      <% } %>
+    </div>
+    <div id="container">
+      <div id="main">
+        <div class="navbar">
+          <div class="toggle">
+            <span class="iconfont icon-menu toggle-icon"></span>
+          </div>
+          <div class="search">
+            <div class="input-warp">
+              <!-- <span class="iconfont icon-sousuo"></span> -->
+              <input
+                type="text"
+                name=""
+                class="st-default-search-input"
+                id="site-search"
+                placeholder="Search Keys"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="content">
+          <%- body %>
+        </div>
+        <footer>
+          <div class="copyright">
+            ©2019 <a href="<%= config.url %>"><%= config.author %></a>. Powered by
+            <a href="https://hexo.io">Hexo</a> &
+            <a href="https://github.com/shixiaohu2206/hexo-theme-huhu">hexo-theme-huhu</a>
+          </div>
+          <% if (theme.site_icp) { %>
+          <div class="icp">
+            <%= theme.site_icp %>
+          </div>
+          <% } %>
+        </footer>
+      </div>
+      <div id="card-wrap">
+        <div class="card">
+          <div class="logo-widget">
+            <div class="author">
+              <%= theme.author%>
+            </div>
+            <div class="logo" style="background-image: url('/images/logo.jpeg')"></div>
+          </div>
+          <% if (theme.weather && theme.weather.appid && theme.weather.appsecret) { %>
+          <div class="locate-widget">
+            <div class="city-wrap">
+              <span class="iconfont icon-dangdi"></span>
+              <span id="city-name"></span>
+            </div>
+            <div class="weather-wrap">
+              <div id="weather-img">
+                <svg class="icon weather" aria-hidden="true">
+                  <use xlink:href="#icon-qingjiafeng"></use>
+                </svg>
+              </div>
+              <div id="weather-detail"></div>
+            </div>
+          </div>
+          <% } %>
+          <div class="follow-widget">
+            <% for (var f in theme.follow){ %>
+            <a href="<%= theme.follow[f] %>" target="_block">
+              <span class="iconfont icon-<%= f %>"></span>
+            </a>
+            <% } %> <% if (theme.rss) { %>
+            <a href="<%= theme.rss %>" target="_block">
+              <span class="iconfont icon-rss"></span>
+            </a>
+            <% } %>
+          </div>
+          <% if (is_post()) { %> <% if (toc(page.content, {list_number: false})) { %>
+          <div class="toc-widget">
+            <div class="title">
+              <span>Toc</span>
+            </div>
+            <div class="post-toc">
+              <%- toc(page.content, {list_number: false}) %>
+            </div>
+          </div>
+          <% } %> <% } %>
+          <div class="category-widget">
+            <div class="title">
+              <span><%= __('category') %></span>
+              <span><a href="/archives">···</a></span>
+            </div>
+            <div class="list">
+              <% site.categories.each(function (c, k) { %> <% if ( k < theme.categories_max) { %>
+              <a href="<%- url_for(c.path) %>"><%= c.name %></a>
+              <% } %> <% }) %>
+            </div>
+          </div>
+          <div class="tag-widget">
+            <div class="title">
+              <span><%= __('tag_cloud') %></span>
+              <span><a href="">···</a></span>
+            </div>
+            <div class="tag-cloud">
+              <%- tagcloud({ min_font: 13, max_font: 20, amount: 15, color: true, start_color:
+              '#4a4a4a', end_color: '#4a4a4a'}) %>
+            </div>
+          </div>
+        </div>
+        <% if (theme.google_ad_client) { %>
+        <div class="ads-widget">
+          <!-- 右侧广告 -->
+          <ins
+            class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-9618079338040236"
+            data-ad-slot="4996014531"
+            data-ad-format="auto"
+            data-full-width-responsive="true"
+          ></ins>
+          <script>
+            ;(adsbygoogle = window.adsbygoogle || []).push({})
+          </script>
+        </div>
+        <% } %>
+      </div>
+    </div>
+    <!-- swiftype -->
+    <% if (theme.swiftype && theme.swiftype.appKey) { %>
+    <script type="text/javascript">
+      ;(function(w, d, t, u, n, s, e) {
+        w['SwiftypeObject'] = n
+        w[n] =
+          w[n] ||
+          function() {
+            ;(w[n].q = w[n].q || []).push(arguments)
+          }
+        s = d.createElement(t)
+        e = d.getElementsByTagName(t)[0]
+        s.async = 1
+        s.src = u
+        e.parentNode.insertBefore(s, e)
+      })(window, document, 'script', '//s.swiftypecdn.com/install/v2/st.js', '_st')
+
+      _st('install', '<%= theme.swiftype.appKey %>', '2.0.0')
+    </script>
+    <% } %>
+    <!-- swiftype -->
+  </body>
+  <% if (theme.gtm_id) { %>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript
+    ><iframe
+      src="https://www.googletagmanager.com/ns.html?id=<%= theme.gtm_id %>"
+      height="0"
+      width="0"
+      style="display:none;visibility:hidden"
+    ></iframe
+  ></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <% } %>
+  <p id="theme_str" hidden><%= JSON.stringify(theme) %></p>
+</html>
+<script type="text/javascript">
+  window.addEventListener('load', function() {
+    ;(adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: '<%= theme.google_ad_client %>',
+      enable_page_level_ads: true
+    })
+
+    window.THEME_CONFIG = JSON.parse(document.getElementById('theme_str').innerText)
+    window.loadJs = function(d, m, a) {
+      var c = document.getElementsByTagName('head')[0] || document.head || document.documentElement
+      var b = document.createElement('script')
+      b.defer = true
+      b.setAttribute('type', 'text/javascript')
+      b.setAttribute('charset', 'UTF-8')
+      b.setAttribute('async', 'true')
+      b.setAttribute('src', d)
+      m && b.setAttribute('data-main', '<%- url_for("/scripts/app") %>')
+      if (typeof a === 'function') {
+        if (window.attachEvent) {
+          b.onreadystatechange = function() {
+            var e = b.readyState
+            if (e === 'loaded' || e === 'complete') {
+              b.onreadystatechange = null
+              a()
+            }
+          }
+        } else {
+          b.onload = a
+        }
+      }
+      c.appendChild(b)
+    }
+    window.loadJs &&
+      window.loadJs('https://cdn.bootcss.com/require.js/2.3.6/require.min.js', true, function() {
+        require.config({
+          paths: {
+            // site
+            share: 'share',
+            search: 'search',
+            iconfont: 'iconfont',
+            util: 'util',
+            registerSW: 'registerSW',
+            valine: ['cdn/Valine.min'],
+
+            // cdn
+            av: ['<%- theme.cdn_module.av_min %>', 'cdn/av-min'],
+            pjax: ['<%- theme.cdn_module.pjax %>', 'cdn/pjax.min'],
+            jquery: ['<%- theme.cdn_module.jquery %>', 'cdn/jquery.min'],
+            confirm: ['<%- theme.cdn_module.confirm %>', 'cdn/jquery.confirm.min'],
+            fancybox: ['<%- theme.cdn_module.fancybox %>', 'cdn/jquery.fancybox.min']
+          },
+
+          map: {
+            '*': {
+              css: 'https://cdn.bootcss.com/require-css/0.1.10/css.min.js'
+            }
+          },
+
+          shim: {
+            fancybox: {
+              deps: ['css!https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css']
+            },
+            confirm: {
+              deps: ['css!https://cdn.bootcss.com/jquery-confirm/3.3.4/jquery-confirm.min.css']
+            }
+          },
+
+          // 加载超时
+          waitSeconds: 3
+        })
+      })
+  })
+</script>
+<% if (theme.baidu_push) { %>
+<script>
+  ;(function() {
+    var bp = document.createElement('script')
+    var curProtocol = window.location.protocol.split(':')[0]
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js'
+    } else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js'
+    }
+    var s = document.getElementsByTagName('script')[0]
+    s.parentNode.insertBefore(bp, s)
+  })()
+</script>
+<% } %>
+
+<script src="https://cdn.jsdelivr.net/npm/algoliasearch@3.33.0/dist/algoliasearchLite.min.js"></script>
+
+<script>
+  const client = algoliasearch('UL5U4KF7NA', 'cb0ba3563c92ba60965c89cce8c69077')
+  const index = client.initIndex('Utone')
+
+  // only query string
+  index.search(
+    {
+      query: '倒影'
+    },
+    (err, { hits } = {}) => {
+      if (err) throw err
+
+      console.log(hits)
+    }
+  )
+</script>

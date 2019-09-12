@@ -1,0 +1,75 @@
+#菜单导航
+menu:
+  home: /
+  archives: /archives
+  #about: /about
+
+#logo
+logo: /images/logo.png
+
+#categories-max
+categories_max: 5
+
+#tags-max
+tags_max: 10
+
+#favicon
+favicon: /images/favicon.ico
+
+#ite switch
+site_search: true
+
+#rss
+rss: /atom.xml
+
+#follow 按顺序展示
+follow:
+  github: 'https://github.com/Jackyliu47'
+  facebook: 'https://github.com/Jackyliu47'
+  twitter: 'https://github.com/Jackyliu47'
+  instagram: 'https://github.com/Jackyliu47'
+  # weixin: 'https://github.com/shixiaohu2206'
+  # alipay: 'https://github.com/shixiaohu2206'
+  # zhihu: 'https://github.com/shixiaohu2206'
+  # QQ: 'https://github.com/shixiaohu2206'
+  # weibo: 'https://github.com/shixiaohu2206'
+  #  : 'https://github.com/shixiaohu2206'
+  # qqkongjian: 'https://github.com/shixiaohu2206'
+  # google: 'https://github.com/shixiaohu2206'
+
+#search post url
+search_url: /search.xml
+
+#ICP 皖ICP备16021483号
+site_icp: ''
+
+#友情链接
+#site_friends:
+#  房间里的小猫咪: 'http://baidu.com'
+
+#分享
+share:
+  - weibo
+  - weixin
+  - qqkongjian
+  - QQ
+  - douban
+  - facebook
+  - twitter
+  - google
+
+#cdn 不能以.js结尾
+cdn_module:
+  av_min: 'https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min'
+  pjax: 'https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min'
+  jquery: 'https://cdn.bootcss.com/jquery/3.4.1/jquery.min'
+  confirm: 'https://cdn.bootcss.com/jquery-confirm/3.3.4/jquery-confirm.min'
+  fancybox: 'https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min'
+
+#baidu push
+baidu_push: true
+
+#reward
+reward:
+#  weixin: 'images/weixin.png'
+#  zhifubao: 'images/zhifubao.png'
