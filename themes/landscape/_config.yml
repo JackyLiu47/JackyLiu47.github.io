@@ -5,9 +5,9 @@
 menu:
     home: /
     archive: /archives
-    #categories: /categories
-    #tags: /tags
-    #about: /about
+    categories: /categories
+    tags: /tags
+    about: /about
     #gallery: /gallery
 
 # favicon & logo
@@ -68,12 +68,12 @@ comment:
     enable: true
 
 gitalk:
-    enable: false
-    clientID: '333--' 
-    clientSecret: '333--' 
-    repo: annie-gitalk 
-    owner: Sariay 
-    admin: Sariay 
+    enable: true
+    clientID: 'a6e543032a3a82bb78bc' 
+    clientSecret: '968a1b75516efc85d1b086a21ec10113bfb9825a' 
+    repo: jackyliu_gitalk 
+    owner: JackyLiu47 
+    admin: JackyLiu47
     distractionFreeMode: true
     #去除 more、index.html、?query=123等格式尾部 
     hrefTrimend: '#.*$,\\?.*$,index.html$' 
@@ -136,7 +136,7 @@ code_copy:
     enable: true
 
 # post_excerpt for index page
-excerpt_cart: 80
+excerpt_cart: 50
 excerpt_pure: 300   
 excerpt_link: true
 
@@ -150,7 +150,7 @@ addThis:
     id: ra-xxx
 # http://share.baidu.com/code
 baiduShare: 
-    enable: false
+    enable: true
     style: button # you can add slide style!
 # https://www.sharethis.com/onboarding-cms/    
 shareThis:
@@ -158,7 +158,7 @@ shareThis:
     id: 5c-xxx
 # https://github.com/overtrue/share.js
 socialShare:
-    enable: true
+    enable: false
 
 #########################################################################################################
 # 005-FOOTER
@@ -185,8 +185,8 @@ social:
         icon: fa fa-rss
 
 # copyright  
-since: 2017
-cotent_author: Sariay
+since: 2019
+cotent_author: JackyLiu
 
 #########################################################################################################
 # 006-GALLERY PAGE
