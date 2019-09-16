@@ -150,7 +150,7 @@ addThis:
     id: ra-xxx
 # http://share.baidu.com/code
 baiduShare: 
-    enable: true
+    enable: false
     style: button # you can add slide style!
 # https://www.sharethis.com/onboarding-cms/    
 shareThis:
@@ -158,7 +158,7 @@ shareThis:
     id: 5c-xxx
 # https://github.com/overtrue/share.js
 socialShare:
-    enable: false
+    enable: true
 
 #########################################################################################################
 # 005-FOOTER
@@ -166,19 +166,19 @@ socialShare:
 # social
 social:
     github:
-        url: http://github.com/
+        url: http://github.com/jackyliu47/
         icon: fa fa-github
     weibo:
-        url: http://github.com/
+        url: https://jackyliu47.github.io/
         icon: fa fa-weibo    
     pinterest: 
-        url: http://github.com/
+        url: https://jackyliu47.github.io/
         icon: fa fa-pinterest
     instagram:
-        url: http://github.com/
+        url: https://jackyliu47.github.io/
         icon: fa fa-instagram
     twitter:
-        url: http://github.com/
+        url: https://jackyliu47.github.io/
         icon: fa fa-twitter
     rss: 
         url: /atom.xml
