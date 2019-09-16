@@ -71,7 +71,7 @@ gitalk:
     enable: true
     clientID: 'a6e543032a3a82bb78bc' 
     clientSecret: '968a1b75516efc85d1b086a21ec10113bfb9825a' 
-    repo: jackyliu_gitalk 
+    repo: jackyliu_gittalk 
     owner: JackyLiu47 
     admin: JackyLiu47
     distractionFreeMode: true
